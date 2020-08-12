@@ -2,13 +2,19 @@ import React from 'react';
 import './App.css';
 import SearchMovies from '../src/Containers/searchMovies'
 import MoviesList from './Containers/moviesList'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension'
 
+const store = createStore(reducer, composeWithDevTools())
 function App() {
   return (
-    <div className="App">
-      <SearchMovies />
-      <MoviesList />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <SearchMovies />
+        <MoviesList />
+      </div>
+    </Provider>
   );
 }
 

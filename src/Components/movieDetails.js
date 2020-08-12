@@ -4,12 +4,12 @@ import React from 'react'
 const MovieDetails = () => {
   return (
     <div>
-      <div>
-
+      <div width='20px' height='30px' border='solid'>
+        trailer
       </div>
       <div>
-        <p></p>
-        <p></p>
+        <p>rating</p>
+        <p>movie name</p>
       </div>
     </div>
   )
