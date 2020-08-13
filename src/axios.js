@@ -1,16 +1,14 @@
 import axios from 'axios'
-import { useEffect } from 'react'
 import { OMDBAPI } from './env-variables'
 
-const useAxios = (callback, text) => {
+const axiosCall = (callback, text) => (
 
-  return useEffect(() => {
-    axios.get(`http://www.omdbapi.com/?apikey=${OMDBAPI}&s=${text}`)
-      .then(response => (
-        callback(response)
-      ))
-      .catch(error => console.log(error))
-  })
-}
+  axios.get(`http://www.omdbapi.com/?apikey=${OMDBAPI}&s=${text}`)
+    .then(response => (
+      callback(response.data.Search)
+    ))
+    .catch(error => console.log(error))
 
-export default useAxios
+)
+
+export default axiosCall

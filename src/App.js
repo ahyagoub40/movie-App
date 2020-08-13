@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import SearchMovies from '../src/Containers/searchMovies'
-import MoviesList from './Containers/moviesList'
+import MoviesList from './Components/moviesList'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension'

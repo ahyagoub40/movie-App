@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const MovieDetails = () => {
+const MovieCard = () => {
   return (
     <div>
       <div width='20px' height='30px' border='solid'>
@@ -15,4 +15,4 @@ const MovieDetails = () => {
   )
 }
 
-export default MovieDetails
+export default MovieCard
