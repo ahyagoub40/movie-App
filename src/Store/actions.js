@@ -1,5 +1,5 @@
-export const getMovieDetails = (id) => ({
-  type: 'GET_MOVIE_DETAILS', id
+export const getMovies = () => ({
+  type: 'GET_MOVIES'
 })
 
 export const searchMovies = () => ({
