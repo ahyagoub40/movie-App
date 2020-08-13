@@ -1,15 +1,15 @@
 import React from 'react'
 
 
-const MovieCard = () => {
+const MovieCard = ({ name, poster, year }) => {
   return (
     <div>
       <div width='20px' height='30px' border='solid'>
-        trailer
+        <img src={poster} alt="movie poster" />
       </div>
       <div>
-        <p>rating</p>
-        <p>movie name</p>
+        <p>{year}</p>
+        <p>{name}</p>
       </div>
     </div>
   )
