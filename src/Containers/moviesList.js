@@ -1,14 +1,14 @@
 import React from 'react'
 import MovieDetails from '../Components/movieDetails'
-
-const MoviesList = ({ movies }) => {
+import useAxios from '../axios'
+const MoviesList = () => {
+  const callBack = (res) => console.log(res)
+  useAxios(callBack, 'terminator')
   return (
     <div>
-      {movies.map(movie => (
-        <MovieDetails />
-      ))}
+      <MovieDetails />
     </div>
   )
 }
 
-export default MovieDetails
+export default MoviesList

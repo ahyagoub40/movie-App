@@ -1,7 +1,7 @@
-export const getMovies = () => ({
-  type: 'GET_MOVIES'
+export const getMovies = (payload) => ({
+  type: 'GET_MOVIES', payload
 })
 
-export const searchMovies = () => ({
-  type: 'SEARCH_MOVIES'
+export const searchMovies = (title) => ({
+  type: 'SEARCH_MOVIES', title
 })
