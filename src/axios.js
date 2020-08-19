@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { OMDBAPI } from './env-variables'
+// import { useEffect } from 'react'
 
-const axiosCall = (callback, text) => (
+const omdbApiCall = (callback, text) => (
 
   axios.get(`http://www.omdbapi.com/?apikey=${OMDBAPI}&s=${text}`)
     .then(response => (
@@ -11,4 +12,10 @@ const axiosCall = (callback, text) => (
 
 )
 
-export default axiosCall
+// const movieApiCall = () => (
+//   useEffect(() => (
+
+//   ))
+// )
+
+export { omdbApiCall }

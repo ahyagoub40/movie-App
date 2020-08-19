@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../Components/button'
-import axiosCall from '../axios'
+import { omdbApiCall } from '../axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMovies, searchMovies } from '../Store/actions'
 
@@ -12,7 +12,7 @@ const SearchMovies = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    axiosCall(callback, title)
+    omdbApiCall(callback, title)
   }
 
   return (
