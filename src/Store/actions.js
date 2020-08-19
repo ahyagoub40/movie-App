@@ -5,3 +5,7 @@ export const getMovies = (payload) => ({
 export const searchMovies = (title) => ({
   type: 'SEARCH_MOVIES', title
 })
+
+export const getMovieDetails = (payload) => ({
+  type: 'GET_MOVIE_DETAILS', payload
+})

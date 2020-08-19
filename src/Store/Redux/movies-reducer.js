@@ -1,15 +1,15 @@
 import { initialState } from "./initialState";
 
-const movie = (state = initialState.movie, action) => {
-  const getMovieDetails = () => (
-    {
+const movies = (state = initialState.movies, action) => {
+  const getMovies = () => (
+    [
       ...action.payload
-    }
+    ]
   )
   const options = {
-    GET_MOVIE_DETAILS: getMovieDetails,
+    GET_MOVIES: getMovies,
     default: () => state
   }
   return (options[action.type] || options.default)()
 }
-export default movie
+export default movies
