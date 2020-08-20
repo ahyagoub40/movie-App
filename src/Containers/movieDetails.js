@@ -15,10 +15,11 @@ const MovieDetails = () => {
       <div>Run Time: {movie.runtime}</div>
       <div>Language: {movie.original_language}</div>
       <div>Status: {movie.status}</div>
-      <div>Trailer:
-        <a href={`https://www.youtube.com/watch?v=${movie?.videos?.results[0]['key']}`}>
-          Trailer
-        </a>
+      <div>
+        <iframe title="trailer" width="560" height="315"
+          src={`https://www.youtube.com/embed/${movie?.videos?.results[0]['key']}`}
+          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
       </div>
       <div >
         <MoviesList className="similar-movies" />
