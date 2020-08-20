@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { movieApiCall } from '../axios'
 import { getMovieDetails } from '../Store/actions'
 
-const MoviesList = () => {
+const MoviesList = ({ className }) => {
 
   const dispatch = useDispatch()
   const movies = useSelector(state => state.movies)
   const callback = (data) => dispatch(getMovieDetails(data))
 
   return (
-    <div>
+    <div className={className}>
       {
         movies.map((movie, index) => (
           <MovieCard

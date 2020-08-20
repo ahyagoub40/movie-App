@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 const MovieCard = ({ name, poster, year, onClick }) => {
+
   return (
     <div>
       <div width='20px' height='30px' border='solid'>
