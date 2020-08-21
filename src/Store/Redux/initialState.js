@@ -18,5 +18,6 @@ export const initialState = {
       Poster: "https://m.media-amazon.com/images/M/MV5BMTMyMzc3OTkwMV5BMl5BanBnXkFtZTcwMjc0MTgwNA@@._V1_SX300.jpg"
     }
   ],
-  movie: {}
+  movie: {},
+  loading: false
 }

@@ -9,3 +9,11 @@ export const searchMovies = (title) => ({
 export const getMovieDetails = (payload) => ({
   type: 'GET_MOVIE_DETAILS', payload
 })
+
+export const loading = () => ({
+  type: 'IS_LOADING'
+})
+
+export const notLoading = () => ({
+  type: 'IS_NOT_LOADING'
+})

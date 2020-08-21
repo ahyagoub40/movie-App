@@ -12,12 +12,13 @@ const omdbApiCall = (callback, text) => (
 
 )
 
-const movieApiCall = (callback, id) => (
+const movieApiCall = (dispatching, id, changeLoadingState) => (
   axios.get(`http://api.themoviedb.org/3/movie/${id}?api_key=${TMDBAPI}&append_to_response=videos
   `)
     .then(response => (
-      callback(response.data)
+      dispatching(response.data)
     ))
+    .then(() => changeLoadingState())
     .catch(error => console.log(error))
 )
 
