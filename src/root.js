@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import reducer from '../src/Store/Redux/index'
 import App from './App';
 import MovieDetails from './Containers/movieDetails';
+import Login from './Containers/login';
 const store = createStore(reducer, composeWithDevTools())
 
 function Root() {
@@ -13,8 +14,9 @@ function Root() {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/" exact component={App} />
+          <Route path="/movies-lists" exact component={App} />
           <Route path="/movie-details" component={MovieDetails} />
+          <Route path="/" exact component={Login} />
         </Switch>
       </Router>
     </Provider>
