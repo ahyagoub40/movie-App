@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../Store/actions';
+import { Redirect } from 'react-router-dom';
 
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(state => state.loggedIn.status);
 
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ 'email': email, 'password': password }))
   };
+
+  if (isLoggedIn) {
+    return <Redirect to="/movies-lists" />
+  }
   return (
     <form onSubmit={onSubmit}>
       <input

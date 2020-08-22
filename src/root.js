@@ -14,7 +14,7 @@ function Root() {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/movies-lists" exact component={App} />
+          <Route path="/movies-lists" component={App} />
           <Route path="/movie-details" component={MovieDetails} />
           <Route path="/" exact component={Login} />
         </Switch>
