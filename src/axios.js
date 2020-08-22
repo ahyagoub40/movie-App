@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { OMDBAPI, TMDBAPI } from './env-variables'
 
-
 const omdbApiCall = (callback, text) => (
 
   axios.get(`http://www.omdbapi.com/?apikey=${OMDBAPI}&s=${text}`)
@@ -9,7 +8,6 @@ const omdbApiCall = (callback, text) => (
       callback(response.data.Search)
     ))
     .catch(error => console.log(error))
-
 )
 
 const movieApiCall = (dispatching, id, changeLoadingState) => (

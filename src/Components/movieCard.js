@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import MoviePoster from './movie-poster'
 
 const MovieCard = ({ name, poster, year, onClick }) => {
 
@@ -7,11 +8,7 @@ const MovieCard = ({ name, poster, year, onClick }) => {
     <div>
       <div width='20px' height='30px' border='solid'>
         <Link to="/movie-details" onClick={onClick}>
-          <img src={
-            (poster === 'N/A') ? "https://www.labaleine.fr/sites/default/files/image-not-found.jpg" : poster
-          }
-            alt="movie poster"
-            width="300px" heigth="500px" />
+          < MoviePoster poster={poster} />
         </Link>
       </div>
       <div>
