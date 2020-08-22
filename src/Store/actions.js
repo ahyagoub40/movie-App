@@ -20,4 +20,8 @@ export const notLoading = () => ({
 
 export const login = (payload) => ({
   type: 'SET_LOGIN', payload
-})
+});
+
+export const logout = () => ({
+  type: 'SET_LOGOUT'
+});

@@ -5,6 +5,7 @@ import '../App.css';
 import Loading from '../Components/loading';
 import MoviePoster from '../Components/movie-poster';
 import Iframe from '../Components/iframe';
+import Logout from './logout';
 const MovieDetails = () => {
 
   const state = useSelector(state => state)
@@ -15,6 +16,9 @@ const MovieDetails = () => {
   const poster = movies.find(m => m.imdbID === movie.imdb_id).Poster
   return (
     <div>
+      <div>
+        <Logout />
+      </div>
       <div>Title: {movie.original_title}</div>
       <div>
         <MoviePoster poster={poster} />
