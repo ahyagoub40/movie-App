@@ -1,6 +1,16 @@
-import { initialState } from "./initialState";
+const initialState = { email: "", password: "", status: false };
 
-const loggedIn = (state = initialState.loggedIn, action) => {
+//actions
+export const login = (payload) => ({
+  type: 'SET_LOGIN', payload
+});
+
+export const logout = () => ({
+  type: 'SET_LOGOUT'
+});
+
+// reducer
+const loggedIn = (state = initialState, action) => {
   const loginStatus = () => (
     {
       ...state,
@@ -19,5 +29,6 @@ const loggedIn = (state = initialState.loggedIn, action) => {
     default: () => state
   }
   return (options[action.type] || options.default)()
-}
+};
+
 export default loggedIn

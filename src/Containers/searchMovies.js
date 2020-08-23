@@ -1,9 +1,9 @@
-import React from 'react'
-import Button from '../Components/button'
-import { omdbApiCall } from '../axios'
-import { useDispatch, useSelector } from 'react-redux'
-import { getMovies, searchMovies } from '../Store/actions'
-
+import React from 'react';
+import Button from '../Components/button';
+import { omdbApiCall } from '../axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMovies } from '../Store/Redux/movies-reducer';
+import { searchMovies } from '../Store/Redux/title-reducer';
 const SearchMovies = () => {
   const title = useSelector(state => state.title)
   const dispatch = useDispatch()

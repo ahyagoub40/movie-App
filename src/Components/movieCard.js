@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import MoviePoster from './movie-poster'
 
-const MovieCard = ({ name, poster, year, onClick }) => {
+const MovieCard = ({ name, poster, year, imdbID }) => {
 
   return (
     <div>
       <div width='20px' height='30px' border='solid'>
-        <Link to="/movie-details" onClick={onClick}>
+        <Link to={`/movie-details/${imdbID}`} >
           < MoviePoster poster={poster} />
         </Link>
       </div>

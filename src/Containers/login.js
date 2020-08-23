@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../Store/actions';
+import { login } from '../Store/Redux/login-reducer';
 import { Redirect } from 'react-router-dom';
 import Button from '../Components/button';
 const Login = () => {

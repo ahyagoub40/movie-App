@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { OMDBAPI, TMDBAPI } from './env-variables'
+import { OMDBAPI } from './env-variables'
 
 const omdbApiCall = (callback, text) => (
 
@@ -10,14 +10,5 @@ const omdbApiCall = (callback, text) => (
     .catch(error => console.log(error))
 )
 
-const movieApiCall = (dispatching, id, changeLoadingState) => (
-  axios.get(`http://api.themoviedb.org/3/movie/${id}?api_key=${TMDBAPI}&append_to_response=videos
-  `)
-    .then(response => (
-      dispatching(response.data)
-    ))
-    .then(() => changeLoadingState())
-    .catch(error => console.log(error))
-)
 
-export { omdbApiCall, movieApiCall }
+export { omdbApiCall }

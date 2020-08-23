@@ -1,6 +1,29 @@
-import { initialState } from "./initialState";
+const initialState = [
+  {
+    Title: "Terminator 2: Judgment Day", Year: "1991", imdbID: "tt0103064",
+    Poster: "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
+  },
+  {
+    Title: "Avengers: Endgame", Year: "2019", imdbID: "tt4154796",
+    Poster: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg"
+  },
+  {
+    Title: "The Net", Year: "1995", imdbID: "tt0113957",
+    Poster: "https://m.media-amazon.com/images/M/MV5BZTg5YmM5NzktN2Q0OS00YzE1LThkOTktNTE1NTJkZmExNmIxXkEyXkFqcGdeQXVyNDAxNjkxNjQ@._V1_SX300.jpg"
+  },
+  {
+    Title: "The Tourist", Year: "2010", imdbID: "tt1243957",
+    Poster: "https://m.media-amazon.com/images/M/MV5BMTMyMzc3OTkwMV5BMl5BanBnXkFtZTcwMjc0MTgwNA@@._V1_SX300.jpg"
+  }
+];
 
-const movies = (state = initialState.movies, action) => {
+// actions
+export const getMovies = (payload) => ({
+  type: 'GET_MOVIES', payload
+});
+
+// reducer
+const movies = (state = initialState, action) => {
   const getMovies = () => (
     [
       ...action.payload
@@ -11,5 +34,6 @@ const movies = (state = initialState.movies, action) => {
     default: () => state
   }
   return (options[action.type] || options.default)()
-}
-export default movies
+};
+
+export default movies;

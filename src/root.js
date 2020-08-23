@@ -1,13 +1,10 @@
 import React from 'react';
-import { createStore } from 'redux'
 import { Provider } from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import reducer from '../src/Store/Redux/index'
 import App from './App';
 import MovieDetails from './Containers/movieDetails';
 import Login from './Containers/login';
-const store = createStore(reducer, composeWithDevTools())
+import store from './Store/store';
 
 function Root() {
   return (
@@ -15,7 +12,7 @@ function Root() {
       <Router>
         <Switch>
           <Route path="/movies-lists" component={App} />
-          <Route path="/movie-details" component={MovieDetails} />
+          <Route path="/movie-details/:id" component={MovieDetails} />
           <Route path="/" exact component={Login} />
         </Switch>
       </Router>

@@ -9,7 +9,7 @@ import Logout from './logout';
 import axios from 'axios';
 import { TMDBAPI } from '../env-variables';
 import { loading, notLoading } from '../Store/Redux/loading-reducer';
-import { getMovieDetails } from '../Store/actions';
+import { getMovieDetails } from '../Store/Redux/movie-reducer';
 const MovieDetails = ({ match }) => {
 
   const state = useSelector(state => state);
