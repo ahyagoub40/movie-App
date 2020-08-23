@@ -2,8 +2,8 @@ import React from 'react'
 import MovieCard from '../Components/movieCard'
 import { useSelector, useDispatch } from 'react-redux'
 import { movieApiCall } from '../axios'
-import { getMovieDetails, loading, notLoading } from '../Store/actions'
-
+import { getMovieDetails } from '../Store/actions'
+import { loading, notLoading } from '../Store/Redux/loading-reducer';
 const MoviesList = ({ className }) => {
 
   const dispatch = useDispatch();

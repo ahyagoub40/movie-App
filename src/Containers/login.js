@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../Store/actions';
 import { Redirect } from 'react-router-dom';
-
+import Button from '../Components/button';
 const Login = () => {
 
   const [email, setEmail] = useState('');
@@ -12,7 +12,12 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(login({ 'email': email, 'password': password }))
+    if (email === 'ahyagoub40@gmail.com' && password === '123') {
+      dispatch(login({ 'email': email, 'password': password }))
+    }
+    else {
+      alert("Invalid email / password combination")
+    }
   };
 
   if (isLoggedIn) {
@@ -36,7 +41,7 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <button type="submit">Login</button>
+      <Button >Login</Button>
     </form >
   )
 };

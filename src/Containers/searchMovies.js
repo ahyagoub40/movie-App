@@ -18,7 +18,7 @@ const SearchMovies = () => {
   return (
     <form onSubmit={onSubmit}>
       <input onChange={(e) => dispatch(searchMovies(e.target.value))} />
-      <Button />
+      <Button>Search</Button>
     </form>
   )
 }

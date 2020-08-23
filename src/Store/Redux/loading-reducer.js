@@ -1,6 +1,16 @@
-import { initialState } from "./initialState";
+const initialState = false;
 
-const loading = (state = initialState.loading, action) => {
+// actions
+export const loading = () => ({
+  type: 'IS_LOADING'
+});
+
+export const notLoading = () => ({
+  type: 'IS_NOT_LOADING'
+});
+
+// reducer
+const loader = (state = initialState, action) => {
 
   const isLoading = () => true;
   const notLoading = () => false;
@@ -13,4 +23,4 @@ const loading = (state = initialState.loading, action) => {
 
   return (options[action.type] || options.default)()
 }
-export default loading
+export default loader

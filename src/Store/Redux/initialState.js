@@ -19,6 +19,5 @@ export const initialState = {
     }
   ],
   movie: {},
-  loading: false,
   loggedIn: { email: "", password: "", status: false }
 }

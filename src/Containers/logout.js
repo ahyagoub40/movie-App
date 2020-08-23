@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../Store/actions';
 import { Redirect } from 'react-router-dom';
+import Button from '../Components/button';
 
 const Logout = () => {
 
@@ -12,9 +13,9 @@ const Logout = () => {
     return (<Redirect to="/" />)
   }
   return (
-    <button type="submit" onClick={() => dispatch(logout())}>
+    <Button onClick={() => dispatch(logout())}>
       Logout
-    </button>
+    </Button>
   )
 };
 
