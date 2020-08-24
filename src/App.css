@@ -7,9 +7,13 @@
   margin: 50px;
 }
 #center-login {
-  display: flex;
-  justify-content: center;
-  margin-top: 200px;
+  margin: 200px auto;
+  width: 60%;
+  text-align: center;
+  box-shadow: 0 2px 3px #ccc;
+  border: 1px solid #eee;
+  padding: 10px;
+  box-sizing: border-box;
 }
 #form-login {
   display: flex;

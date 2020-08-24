@@ -5,6 +5,7 @@ import { login } from '../Store/Redux/login-reducer';
 import { Redirect } from 'react-router-dom';
 import Button from '../Components/button';
 import '../App.css';
+import { validatePassword, hashPassword } from '../bcrypt';
 const Login = () => {
 
   const [email, setEmail] = useState('');
@@ -14,8 +15,8 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (email === 'ahyagoub40@gmail.com' && password === '123') {
-      dispatch(login({ 'email': email, 'password': password }))
+    if (email === 'ahyagoub40@gmail.com' && validatePassword('123')) {
+      dispatch(login({ 'email': email, 'password': hashPassword(password) }))
     }
     else {
       alert("Invalid email / password combination")
@@ -35,7 +36,7 @@ const Login = () => {
           name="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail((e.target.value))}
           required
         />
         <TextField
