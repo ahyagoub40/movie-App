@@ -1,11 +1,12 @@
 import React from 'react'
+import { Button } from '@material-ui/core';
 
-const Button = ({ children, onClick }) => {
+const CustomButton = ({ children, onClick }) => {
   return (
-    <button type='submit' onClick={onClick}>
+    <Button color="primary" type='submit' onClick={onClick}>
       {children}
-    </button>
+    </Button>
   )
 }
 
-export default Button
+export default CustomButton

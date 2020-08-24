@@ -36,7 +36,7 @@ const MovieDetails = ({ match }) => {
 
   return (
     <div>
-      <div>
+      <div id="logout" >
         <Logout />
       </div>
       <div>Title: {movie.original_title}</div>

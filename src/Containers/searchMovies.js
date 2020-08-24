@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Components/button';
+import { TextField } from '@material-ui/core';
 import { omdbApiCall } from '../axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovies } from '../Store/Redux/movies-reducer';
@@ -17,7 +18,9 @@ const SearchMovies = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <input onChange={(e) => dispatch(searchMovies(e.target.value))} />
+      <TextField id="outlined-basic" label="Search Movies" variant="outlined"
+        onChange={(e) => dispatch(searchMovies(e.target.value))}
+      />
       <Button>Search</Button>
     </form>
   )

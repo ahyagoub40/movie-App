@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { TextField } from '@material-ui/core';
 import { login } from '../Store/Redux/login-reducer';
 import { Redirect } from 'react-router-dom';
 import Button from '../Components/button';
+import '../App.css';
 const Login = () => {
 
   const [email, setEmail] = useState('');
@@ -24,25 +26,31 @@ const Login = () => {
     return <Redirect to="/movies-lists" />
   }
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <Button >Login</Button>
-    </form >
+    <div id="center-login">
+      <form id="form-login" onSubmit={onSubmit}>
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <Button >Login</Button>
+      </form >
+    </div>
   )
 };
 

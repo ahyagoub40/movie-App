@@ -6,3 +6,18 @@
   height: 400px;
   margin: 50px;
 }
+#center-login {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+#form-login {
+  display: flex;
+  flex-direction: column;
+}
+
+#logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

@@ -8,7 +8,9 @@ import Logout from './Containers/logout';
 function App() {
   return (
     <div className="App">
-      <Logout />
+      <div id="logout" >
+        <Logout />
+      </div>
       <SearchMovies />
       <MoviesList />
     </div>
