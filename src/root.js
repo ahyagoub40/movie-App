@@ -6,6 +6,7 @@ import MovieDetails from './Containers/movieDetails';
 import Login from './Containers/login';
 import store from './Store/store';
 
+
 function Root() {
   return (
     <Provider store={store}>

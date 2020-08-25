@@ -5,11 +5,11 @@ import '../App.css';
 import Loading from '../Components/loading';
 import MoviePoster from '../Components/movie-poster';
 import Iframe from '../Components/iframe';
-import Logout from './logout';
 import axios from 'axios';
 import { TMDBAPI } from '../env-variables';
 import { loading, notLoading } from '../Store/Redux/loading-reducer';
 import { getMovieDetails } from '../Store/Redux/movie-reducer';
+import AppBar from '../Components/AppBar';
 const MovieDetails = ({ match }) => {
 
   const state = useSelector(state => state);
@@ -36,8 +36,8 @@ const MovieDetails = ({ match }) => {
 
   return (
     <div>
-      <div id="logout" >
-        <Logout />
+      <div >
+        <AppBar />
       </div>
       <div>Title: {movie.original_title}</div>
       <div>

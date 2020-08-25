@@ -25,3 +25,15 @@
   top: 0;
   right: 0;
 }
+.ToolBar {
+  display: flex;
+  justify-content: space-between;
+}
+.SearchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.NavBar {
+  margin-bottom: 100px;
+}
