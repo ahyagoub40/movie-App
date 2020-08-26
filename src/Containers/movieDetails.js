@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
+import { Typography } from '@material-ui/core'
 import MoviesList from './moviesList';
 import '../App.css';
 import Loading from '../Components/loading';
 import MoviePoster from '../Components/movie-poster';
 import Iframe from '../Components/iframe';
-import axios from 'axios';
 import { TMDBAPI } from '../env-variables';
 import { loading, notLoading } from '../Store/Redux/loading-reducer';
 import { getMovieDetails } from '../Store/Redux/movie-reducer';
@@ -35,24 +36,31 @@ const MovieDetails = ({ match }) => {
   if (state.loader) return <Loading />
 
   return (
-    <div>
-      <div >
+    <div style={{ margin: "100px" }}>
+      <div  >
         <AppBar />
       </div>
-      <div>Title: {movie.original_title}</div>
-      <div>
-        <MoviePoster poster={poster} />
+      <div className="title-box">
+        <div className="title-rating">
+          <Typography variant="h6">{movie.original_title}</Typography>
+          <Typography variant="h6">{movie.popularity}</Typography>
+        </div>
+        <div id="date-runtime">
+          <Typography style={{ marginRight: "10px" }}>{movie.release_date}</Typography>
+          <Typography>{movie.runtime} mins</Typography>
+        </div>
       </div>
-      <div>Overview: {movie.overview}</div>
-      <div>Popularity: {movie.popularity}</div>
-      <div>Release Date: {movie.release_date}</div>
-      <div>Run Time: {movie.runtime}</div>
-      <div>Language: {movie.original_language}</div>
-      <div>Status: {movie.status}</div>
-      <div>
+      <div id="poster-trailer">
+        <MoviePoster poster={poster} />
         <Iframe imdbKey={movie?.videos?.results[0]['key']} />
       </div>
-      <div >
+      <div id="movie-overview">
+        <Typography style={{ marginBottom: "20px", marginTop: "20px" }}> {movie.overview}</Typography>
+        <Typography >Language: {movie.original_language}</Typography>
+        <Typography>Status: {movie.status}</Typography>
+      </div>
+      <div style={{ marginTop: "100px" }}>
+        <Typography variant="h6">similar movies</Typography>
         <MoviesList className="similar-movies" />
       </div>
     </div>

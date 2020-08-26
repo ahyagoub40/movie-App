@@ -8,10 +8,10 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import '../App.css';
 const SearchMovies = () => {
-  const title = useSelector(state => state.title)
-  const dispatch = useDispatch()
+  const title = useSelector(state => state.title);
+  const dispatch = useDispatch();
+  const callback = (res) => dispatch(getMovies(res));
 
-  const callback = (res) => dispatch(getMovies(res))
   const onSubmit = (e) => {
     e.preventDefault();
     omdbApiCall(callback, title)

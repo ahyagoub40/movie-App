@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import SearchMovies from '../Containers/searchMovies';
 import Logout from '../Containers/logout';
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 export default function ButtonAppBar() {
 
@@ -13,9 +14,11 @@ export default function ButtonAppBar() {
     <div className="NavBar">
       <AppBar position="fixed" >
         <Toolbar className="ToolBar">
-          <Typography variant="h6" >
-            Movie App
+          <Link to="/movies-lists">
+            <Typography variant="h6" >
+              Movie App
           </Typography>
+          </Link>
           <div >
             <SearchMovies />
           </div>
