@@ -52,7 +52,10 @@ const MovieDetails = ({ match }) => {
       </div>
       <div id="poster-trailer">
         <MoviePoster poster={poster} />
-        <Iframe imdbKey={movie?.videos?.results[0]['key']} />
+        {
+          movie.videos.results[0] &&
+          <Iframe imdbKey={movie.videos.results[0]['key']} />
+        }
       </div>
       <div id="movie-overview">
         <Typography style={{ marginBottom: "20px", marginTop: "20px" }}> {movie.overview}</Typography>
