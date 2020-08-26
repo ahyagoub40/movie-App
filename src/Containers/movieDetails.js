@@ -37,9 +37,6 @@ const MovieDetails = ({ match }) => {
 
   return (
     <div style={{ margin: "100px" }}>
-      <div  >
-        <AppBar />
-      </div>
       <div className="title-box">
         <div className="title-rating">
           <Typography variant="h6">{movie.original_title}</Typography>
@@ -53,7 +50,7 @@ const MovieDetails = ({ match }) => {
       <div id="poster-trailer">
         <MoviePoster poster={poster} />
         {
-          movie.videos.results[0] &&
+          movie?.videos?.results[0] &&
           <Iframe imdbKey={movie.videos.results[0]['key']} />
         }
       </div>

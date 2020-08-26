@@ -7,7 +7,7 @@ import Logout from '../Containers/logout';
 import '../App.css';
 import { Link } from 'react-router-dom';
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar({ path }) {
 
 
   return (
@@ -20,7 +20,7 @@ export default function ButtonAppBar() {
           </Typography>
           </Link>
           <div >
-            <SearchMovies />
+            <SearchMovies path={path} />
           </div>
           <Logout />
         </Toolbar>

@@ -12,6 +12,7 @@ const Logout = () => {
   const onClick = () => {
     dispatch(logout());
     localStorage.clear();
+    return (<Redirect to="/" />);
   }
   if (!loggedIn) {
     return (<Redirect to="/" />)

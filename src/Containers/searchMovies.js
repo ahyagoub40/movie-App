@@ -7,12 +7,21 @@ import { searchMovies } from '../Store/Redux/title-reducer';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import '../App.css';
-const SearchMovies = () => {
+import { Redirect, Router } from 'react-router-dom';
+const SearchMovies = ({ path }) => {
+  console.log(path)
   const title = useSelector(state => state.title);
   const dispatch = useDispatch();
   const callback = (res) => dispatch(getMovies(res));
 
   const onSubmit = (e) => {
+    if (path) {
+      return (
+        <Router>
+          <Redirect from={`/movie-details/${path}`} to='/movies-lists' />
+        </Router>
+      )
+    }
     e.preventDefault();
     omdbApiCall(callback, title)
   }
