@@ -10,7 +10,7 @@ import Iframe from '../Components/iframe';
 import { TMDBAPI } from '../env-variables';
 import { loading, notLoading } from '../Store/Redux/loading-reducer';
 import { getMovieDetails } from '../Store/Redux/movie-reducer';
-import AppBar from '../Components/AppBar';
+
 const MovieDetails = ({ match }) => {
 
   const state = useSelector(state => state);
@@ -21,16 +21,21 @@ const MovieDetails = ({ match }) => {
     dispatch(loading());
     axios.get(`http://api.themoviedb.org/3/movie/${imdbID}?api_key=${TMDBAPI}&append_to_response=videos
     `)
-      .then(response => (
+      .then(response => {
+        console.log('response', response)
         dispatch(getMovieDetails(response.data))
-      ))
+      })
       .then(() => dispatch(notLoading()))
       .catch(error => console.log(error))
 
   }, [imdbID, dispatch]);
 
+
   const movie = state.movie;
   const movies = state.movies;
+
+  console.log('imdbID', imdbID)
+  console.log('movies', movies)
   const poster = movies.find(m => m.imdbID === imdbID).Poster;
 
   if (state.loader) return <Loading />
