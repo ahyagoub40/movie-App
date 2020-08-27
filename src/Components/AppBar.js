@@ -8,22 +8,23 @@ import Logout from '../Containers/logout';
 import '../App.css';
 import { resetMovies } from '../Store/Redux/movies-reducer';
 import { clearTitle } from '../Store/Redux/title-reducer';
-
-export default function ButtonAppBar({ path }) {
+import { useHistory } from 'react-router-dom';
+export default function ButtonAppBar() {
   const dispatch = useDispatch();
-
+  const history = useHistory();
   return (
     <div className="NavBar">
       <AppBar position="fixed" >
         <Toolbar className="ToolBar">
           <Button onClick={() => {
-            dispatch(resetMovies())
-            dispatch(clearTitle())
+            dispatch(resetMovies());
+            dispatch(clearTitle());
+            history.push("/movies-lists");
           }}>
             Movie App
         </Button>
           <div >
-            <SearchMovies path={path} />
+            <SearchMovies />
           </div>
           <Logout />
         </Toolbar>

@@ -3,12 +3,12 @@ import Button from '../Components/button';
 import { omdbApiCall } from '../axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovies } from '../Store/Redux/movies-reducer';
-import { searchMovies, clearTitle } from '../Store/Redux/title-reducer';
+import { searchMovies } from '../Store/Redux/title-reducer';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import '../App.css';
 
-const SearchMovies = ({ path }) => {
+const SearchMovies = () => {
   const title = useSelector(state => state.title);
   const dispatch = useDispatch();
   const callback = (res) => dispatch(getMovies(res));

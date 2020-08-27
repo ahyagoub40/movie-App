@@ -71,3 +71,7 @@
 .lan-status {
   margin: auto;
 }
+.search-movies {
+  display: flex;
+  justify-content: center;
+}
