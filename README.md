@@ -24,3 +24,13 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 email: ahyagoub40@gmail.com<br />
 password: 123
+
+
+## Using the App
+
+* Can search for movies in the search bar.<br />
+* Can click on a movie to get more details about it such as trailer and overview.<br />
+* Can play the trailer right from the app.<br />
+* Can see list of similar movies, scrollable.<br />
+* Can clear your movie searches.<br />
+* Clicking on movie app button in navbar takes you to main pages and clear searches.<br />
