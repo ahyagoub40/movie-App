@@ -18,8 +18,11 @@ const loggedIn = (state = initialState, action) => {
       status: true
     }
   );
+  const logout = () => initialState;
+
   const options = {
     SET_LOGIN: loginStatus,
+    SET_LOGOUT: logout,
     default: () => state
   }
   return (options[action.type] || options.default)()
