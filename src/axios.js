@@ -19,15 +19,12 @@ const authenticate = ({ successCallback, failureCallback, email, password, isSig
     url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASEAPI}`;
   }
   axios.post(url, { email, password, returnSecureToken: true })
-    .then((response) => {
-      console.log(response)
+    .then((response) => (
       successCallback(response.data)
-    })
-    .catch((error) => {
-      console.log(error.response.data.error.message)
+    ))
+    .catch((error) => (
       failureCallback(error.response.data.error.message)
-    }
-    )
+    ))
 };
 
 

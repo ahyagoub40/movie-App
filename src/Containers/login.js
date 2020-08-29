@@ -5,18 +5,20 @@ import { login, failedLogin } from '../Store/Redux/login-reducer';
 import { Redirect } from 'react-router-dom';
 import Button from '../Components/button';
 import '../App.css';
-// import { hashPassword, validatePassword } from '../bcrypt';
 import { authenticate } from '../axios';
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSignUp, setIsSignUp] = useState(true);
+
+  const isLoggedIn = useSelector(state => state.loggedIn);
+
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(state => state.loggedIn.status);
   const loginSuccess = (response) => dispatch(login((response)));
   const loginFailure = (error) => dispatch(failedLogin(error));
-  // const passwordCheck = (isSignUp) ? hashPassword(password) : validatePassword(password);
+
+  const switchAuthMode = () => setIsSignUp(!isSignUp);
   const onSubmit = (e) => {
     e.preventDefault();
     authenticate(
@@ -29,13 +31,17 @@ const Login = () => {
       }
     );
   };
-  const switchAuthMode = () => setIsSignUp(!isSignUp);
 
-  if (isLoggedIn) {
+  if (isLoggedIn.status) {
     return <Redirect to="/movies-lists" />
-  }
+  };
+
   return (
     <div id="center-login">
+      {
+        isLoggedIn.error &&
+        <p>{isLoggedIn.error}</p>
+      }
       <form id="form-login" onSubmit={onSubmit}>
         <TextField
           id="outlined-basic"
