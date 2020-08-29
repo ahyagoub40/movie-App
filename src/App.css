@@ -1,10 +1,10 @@
 .similar-movies {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
   height: 400px;
   margin: 50px;
+  overflow: scroll;
 }
 #center-login {
   margin: 200px auto;
@@ -24,4 +24,54 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+.ToolBar {
+  display: flex;
+  justify-content: space-between;
+}
+.SearchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.NavBar {
+  margin-bottom: 200px;
+}
+.movie-lists {
+  margin: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#poster-trailer {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+.title-box {
+  border: solid;
+  background-color: dimgray;
+  max-width: 70%;
+  margin: auto;
+
+}
+.title-rating {
+  display: flex;
+  justify-content: space-between;
+}
+#date-runtime {
+  display: flex;
+  justify-content: start;
+  
+}
+#movie-overview {
+  max-width: 70%;
+  margin: auto;
+}
+.lan-status {
+  margin: auto;
+}
+.search-movies {
+  display: flex;
+  justify-content: center;
 }
