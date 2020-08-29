@@ -1,27 +1,35 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField } from '@material-ui/core';
-import { login } from '../Store/Redux/login-reducer';
+import { login, failedLogin } from '../Store/Redux/login-reducer';
 import { Redirect } from 'react-router-dom';
 import Button from '../Components/button';
 import '../App.css';
-import { validatePassword, hashPassword } from '../bcrypt';
+// import { hashPassword, validatePassword } from '../bcrypt';
+import { authenticate } from '../axios';
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSignUp, setIsSignUp] = useState(true);
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.loggedIn.status);
-
+  const loginSuccess = (response) => dispatch(login((response)));
+  const loginFailure = (error) => dispatch(failedLogin(error));
+  // const passwordCheck = (isSignUp) ? hashPassword(password) : validatePassword(password);
   const onSubmit = (e) => {
     e.preventDefault();
-    if (email === 'ahyagoub40@gmail.com' && validatePassword('123')) {
-      dispatch(login({ 'email': email, 'password': hashPassword(password) }))
-    }
-    else {
-      alert("Invalid email / password combination")
-    }
+    authenticate(
+      {
+        successCallback: loginSuccess,
+        failureCallback: loginFailure,
+        email,
+        password,
+        isSignUp,
+      }
+    );
   };
+  const switchAuthMode = () => setIsSignUp(!isSignUp);
 
   if (isLoggedIn) {
     return <Redirect to="/movies-lists" />
@@ -49,8 +57,11 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <Button >Login</Button>
+        <Button >{isSignUp ? 'SignUp' : 'Login'}</Button>
       </form >
+      <Button onClick={switchAuthMode}>
+        Switch to {isSignUp ? 'Login' : 'SignUp'}
+      </Button>
     </div>
   )
 };

@@ -1,8 +1,11 @@
-const initialState = { email: "", password: "", status: false };
+const initialState = { token: null, email: null, error: null, status: false };
 
 //actions
 export const login = (payload) => ({
   type: 'SET_LOGIN', payload
+});
+export const failedLogin = (error) => ({
+  type: 'LOGIN_FAIL', error
 });
 
 export const logout = () => ({
@@ -11,20 +14,26 @@ export const logout = () => ({
 
 // reducer
 const loggedIn = (state = initialState, action) => {
-  const loginStatus = () => (
+  const loginSuccess = () => (
     {
       ...state,
-      ...action.payload,
+      token: action.payload.idToken,
+      email: action.payload.email,
+      error: null,
       status: true
     }
   );
-  const logoutStatus = () => (
+  const loginFailure = () => (
     {
-      email: "", password: "", status: false
+      ...state,
+      error: action.error
     }
-  )
+  );
+  const logoutStatus = () => initialState;
+
   const options = {
-    SET_LOGIN: loginStatus,
+    SET_LOGIN: loginSuccess,
+    LOGIN_FAIL: loginFailure,
     SET_LOGOUT: logoutStatus,
     default: () => state
   }
