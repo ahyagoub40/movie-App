@@ -13,9 +13,10 @@ const omdbApiCall = (callback, text) => (
 
 // firebase call for authentication
 const authenticate = ({ successCallback, failureCallback, email, password, isSignUp }) => {
-
+  //sign up new users
   let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${FIREBASEAPI}`;
   if (!isSignUp) {
+    // login excisting users
     url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASEAPI}`;
   }
   axios.post(url, { email, password, returnSecureToken: true })

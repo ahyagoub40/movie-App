@@ -9,6 +9,26 @@ import Iframe from '../Components/iframe';
 import { TMDBAPI } from '../env-variables';
 import { loading, notLoading } from '../Store/Redux/loading-reducer';
 import { getMovieDetails } from '../Store/Redux/movie-reducer';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 1000,
+  },
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  },
+}));
 
 const MovieDetails = ({ match }) => {
 
@@ -33,43 +53,46 @@ const MovieDetails = ({ match }) => {
   const movies = state.movies;
 
   const poster = movies.find(m => m.imdbID === imdbID).Poster;
-
-
+  const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       {!state.loader && (
+        <Paper className={classes.paper}>
+          <Grid container spacing={2}>
+            <Grid item>
+              <MoviePoster className={classes.img} poster={poster} />
+            </Grid>
+            <Grid item xs={12} sm container>
+              <Grid item xs container direction="column" spacing={2}>
+                <Grid item xs>
+                  <Typography variant="h6">{movie.original_title}</Typography>
+                  <Typography style={{ marginBottom: "20px", marginTop: "20px" }}> {movie.overview}</Typography>
+                  <Typography >Language: {movie.original_language}</Typography>
+                  <Typography>Status: {movie.status}</Typography>
 
-        <div style={{ margin: "100px" }}>
-          <div className="title-box">
-            <div className="title-rating">
-              <Typography variant="h6">{movie.original_title}</Typography>
-              <Typography variant="h6">{movie.popularity}</Typography>
-            </div>
-            <div id="date-runtime">
-              <Typography style={{ marginRight: "10px" }}>{movie.release_date}</Typography>
-              <Typography>{movie.runtime} mins</Typography>
-            </div>
-          </div>
-          <div id="poster-trailer">
-            <MoviePoster poster={poster} />
+                  <Typography style={{ marginRight: "10px" }}>{movie.release_date}</Typography>
+                  <Typography>{movie.runtime} mins</Typography>
+                </Grid>
+
+              </Grid>
+              <Grid item>
+                <Typography variant="h6">{movie.popularity}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid container>
             {
               movie?.videos?.results[0] &&
               <Iframe imdbKey={movie.videos.results[0]['key']} />
             }
-          </div>
-          <div id="movie-overview">
-            <Typography style={{ marginBottom: "20px", marginTop: "20px" }}> {movie.overview}</Typography>
-            <Typography >Language: {movie.original_language}</Typography>
-            <Typography>Status: {movie.status}</Typography>
-          </div>
-          <div style={{ marginTop: "100px" }}>
-            <Typography variant="h6">similar movies</Typography>
+          </Grid>
+          <Grid container wrap='wrap' >
             <MoviesList className="similar-movies" />
-          </div>
-        </div>
+          </Grid>
+        </Paper>
       )}
     </div>
-  )
+  );
 }
 
 export default MovieDetails

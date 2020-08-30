@@ -6,7 +6,7 @@ const MoviePoster = ({ poster }) => (
     (poster === 'N/A') ? "https://www.labaleine.fr/sites/default/files/image-not-found.jpg" : poster
   }
     alt="movie poster"
-    width="300px" heigth="500px" />
+    width="300px" heigth="600px" margin="10px" />
 
 )
 

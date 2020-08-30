@@ -1,21 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import MoviePoster from './movie-poster'
-import { Typography } from '@material-ui/core'
-
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
 const MovieCard = ({ name, poster, year, imdbID }) => {
 
   return (
     <div>
-      <div border='solid'>
-        <Link to={`/movie-details/${imdbID}`} >
+      <Link to={`/movie-details/${imdbID}`} >
+        <GridListTile >
           < MoviePoster poster={poster} />
-        </Link>
-      </div>
-      <div>
-        <Typography>{year}</Typography>
-        <Typography>{name}</Typography>
-      </div>
+          <GridListTileBar
+            title={name}
+            subtitle={year}
+          />
+        </GridListTile>
+      </Link>
     </div>
   )
 }
