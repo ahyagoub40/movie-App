@@ -38,7 +38,7 @@ const MovieDetails = ({ match }) => {
 
   useEffect(() => {
     dispatch(loading());
-    axios.get(`http://api.themoviedb.org/3/movie/${imdbID}?api_key=${TMDBAPI}&append_to_response=videos
+    axios.get(`https://api.themoviedb.org/3/movie/${imdbID}?api_key=${TMDBAPI}&append_to_response=videos
     `)
       .then(response => {
         dispatch(getMovieDetails(response.data))
