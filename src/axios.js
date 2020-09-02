@@ -4,7 +4,7 @@ import { OMDBAPI, FIREBASEAPI } from './env-variables'
 // ombb Api call for movies
 const omdbApiCall = (callback, text) => (
 
-  axios.get(`http://www.omdbapi.com/?apikey=${OMDBAPI}&s=${text}`)
+  axios.get(`https://www.omdbapi.com/?apikey=${OMDBAPI}&s=${text}`)
     .then(response => (
       callback(response.data.Search)
     ))

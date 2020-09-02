@@ -9,8 +9,4 @@
   publish = "build/"
 
   # Default build command.
-  command = "sed -i s/HEADER_PLACEHOLDER/${REACT_APP_OMDBAPI, REACT_APP_TMDBAPI, REACT_APP_FIREBASEAPI}/g netlify.toml && npm run build"
-
-
-[headers]
-  HEADER_PLACEHOLDER
+  command = "npm run build"
