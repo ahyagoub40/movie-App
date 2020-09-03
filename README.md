@@ -17,13 +17,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+You can access the app here: https://ahyagoub-movie-app.netlify.app
 
 
-## Test Users
+## Authentication
 
-email: ahyagoub40@gmail.com<br />
-password: 123
+You can both sign up or login
 
 
 ## Using the App
