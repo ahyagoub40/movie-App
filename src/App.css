@@ -1,3 +1,10 @@
+html, body, #root {
+  height: 100%;
+  background-image: url("/Movies-background.png");
+}
+.App {
+  height: 100%;
+}
 .similar-movies {
   display: flex;
   flex-wrap: nowrap;
@@ -8,18 +15,25 @@
 }
 #center-login {
   margin: 200px auto;
-  width: 60%;
+  width: 30%;
   text-align: center;
   box-shadow: 0 2px 3px #ccc;
   border: 1px solid #eee;
+  border-radius: 1em;
   padding: 10px;
   box-sizing: border-box;
+  background-color:rgba(0, 0, 0, 0.8);
 }
 #form-login {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 }
-
+.form-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
 #logout {
   position: absolute;
   top: 0;
@@ -74,4 +88,9 @@
 .search-movies {
   display: flex;
   justify-content: center;
+}
+.transparent-input {
+  background-color:rgba(0, 0, 0, 0.8);
+  border: none;
+  color: #eee;
 }

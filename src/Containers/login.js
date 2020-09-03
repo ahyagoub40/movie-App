@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { TextField } from '@material-ui/core';
 import { login, failedLogin } from '../Store/Redux/login-reducer';
 import { Redirect } from 'react-router-dom';
 import Button from '../Components/button';
@@ -37,37 +36,46 @@ const Login = () => {
   };
 
   return (
-    <div id="center-login">
-      {
-        isLoggedIn.error &&
-        <p>{isLoggedIn.error}</p>
-      }
-      <form form id="form-login" onSubmit={onSubmit} >
-        <TextField
-          id="outlined-basic"
-          variant="outlined"
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail((e.target.value))}
-          required
-        />
-        <TextField
-          id="outlined-basic"
-          variant="outlined"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <Button >{isSignUp ? 'SignUp' : 'Login'}</Button>
-      </form >
-      <Button onClick={switchAuthMode}>
-        Switch to {isSignUp ? 'Login' : 'SignUp'}
-      </Button>
+    <div >
+      <div id="center-login">
+        {
+          isLoggedIn.error &&
+          <p>{isLoggedIn.error}</p>
+        }
+        <form form id="form-login" onSubmit={onSubmit} >
+          <div className="form-input">
+
+            <label for="email" style={{ color: "white" }}>Email</label>
+            <input
+              className="transparent-input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail((e.target.value))}
+              required
+            />
+          </div>
+          <div className="form-input">
+            <label for="password" style={{ color: "white" }}>Password</label>
+            <input
+              className="transparent-input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <Button color="Primary" style={{ color: "white" }}>
+            {isSignUp ? 'SignUp' : 'Login'}
+          </Button>
+        </form >
+        <Button color="Primary" onClick={switchAuthMode}>
+          Switch to {isSignUp ? 'Login' : 'SignUp'}
+        </Button>
+      </div>
     </div>
   )
 };

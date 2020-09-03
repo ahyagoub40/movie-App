@@ -5,6 +5,7 @@ import '../App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
+import { Paper } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,7 +14,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 1200,
+    background: "grey"
   },
   gridList: {
     display: 'flex',
@@ -32,18 +38,23 @@ const MoviesList = ({ className }) => {
       {
         movies.length > 0
           ?
-          <GridList cellHeight={180} className={classes.gridList} >
-            {movies.map((movie, index) => (
-              <MovieCard
-                key={index}
-                name={movie.Title}
-                year={movie.Year}
-                poster={movie.Poster}
-                imdbID={movie.imdbID}
-              />
-            ))}
-          </GridList>
-          : <h1 className="search-movies" >Search for a movies!</h1>
+          <Paper className={classes.paper}>
+
+            <GridList cellHeight={180} className={classes.gridList} >
+              {movies.map((movie, index) => (
+                <MovieCard
+                  key={index}
+                  name={movie.Title}
+                  year={movie.Year}
+                  poster={movie.Poster}
+                  imdbID={movie.imdbID}
+                />
+              ))}
+            </GridList>
+          </Paper >
+          : <Paper className={classes.paper}>
+            <h1 className="search-movies" >Search for a movies!</h1>
+          </Paper>
       }
     </div>
   )
