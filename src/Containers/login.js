@@ -42,7 +42,7 @@ const Login = () => {
         isLoggedIn.error &&
         <p>{isLoggedIn.error}</p>
       }
-      <form id="form-login" onSubmit={onSubmit}>
+      <form form id="form-login" onSubmit={onSubmit} >
         <TextField
           id="outlined-basic"
           variant="outlined"

@@ -16,11 +16,13 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+
   },
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
     maxWidth: 1000,
+    background: "grey"
   },
   img: {
     margin: 'auto',
@@ -70,8 +72,8 @@ const MovieDetails = ({ match }) => {
                   <Typography >Language: {movie.original_language}</Typography>
                   <Typography>Status: {movie.status}</Typography>
 
-                  <Typography style={{ marginRight: "10px" }}>{movie.release_date}</Typography>
-                  <Typography>{movie.runtime} mins</Typography>
+                  <Typography style={{ marginRight: "10px" }}>release_date: {movie.release_date}</Typography>
+                  <Typography>runtime: {movie.runtime} mins</Typography>
                 </Grid>
 
               </Grid>
