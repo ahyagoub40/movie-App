@@ -45,7 +45,10 @@ const MovieDetails = ({ match }) => {
         dispatch(getMovieDetails(response.data))
       })
       .then(() => dispatch(notLoading()))
-      .catch(error => console.log(error))
+      .catch(error => {
+        dispatch(getMovieDetails(error.response.data))
+      })
+      .then(() => dispatch(notLoading()))
 
   }, [imdbID, dispatch]);
 

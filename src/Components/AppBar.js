@@ -11,7 +11,6 @@ import { clearTitle } from '../Store/Redux/title-reducer';
 import { useHistory } from 'react-router-dom';
 export default function ButtonAppBar() {
   const loggedIn = useSelector(state => state.loggedIn.status)
-  console.log(loggedIn)
   const dispatch = useDispatch();
   const history = useHistory();
   return (

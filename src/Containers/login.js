@@ -40,12 +40,12 @@ const Login = () => {
       <div id="center-login">
         {
           isLoggedIn.error &&
-          <p>{isLoggedIn.error}</p>
+          <p style={{ color: "white" }}>{isLoggedIn.error}</p>
         }
         <form form id="form-login" onSubmit={onSubmit} >
           <div className="form-input">
 
-            <label for="email" style={{ color: "white" }}>Email</label>
+            <label htmlFor="email" style={{ color: "white" }}>Email</label>
             <input
               className="transparent-input"
               type="email"
@@ -57,7 +57,7 @@ const Login = () => {
             />
           </div>
           <div className="form-input">
-            <label for="password" style={{ color: "white" }}>Password</label>
+            <label htmlFor="password" style={{ color: "white" }}>Password</label>
             <input
               className="transparent-input"
               type="password"

@@ -32,7 +32,7 @@ html, body, #root {
 .form-input {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
 }
 #logout {
   position: absolute;
@@ -60,7 +60,7 @@ html, body, #root {
 #poster-trailer {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 .title-box {
   border: solid;
@@ -75,7 +75,7 @@ html, body, #root {
 }
 #date-runtime {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   
 }
 #movie-overview {
